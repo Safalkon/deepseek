@@ -1,0 +1,20 @@
+{{ define "telegram.message" }}
+{{ if eq .Status "firing" }}
+🚨 **ALERT FIRING**
+{{ else }}
+✅ **ALERT RESOLVED**
+{{ end }}
+
+**Alert:** {{ .CommonLabels.alertname }}
+**Severity:** {{ .CommonLabels.severity }}
+
+{{ range .Alerts }}
+**Description:** {{ .Annotations.description }}
+**Summary:** {{ .Annotations.summary }}
+**Instance:** {{ .Labels.instance }}
+**Started:** {{ .StartsAt.Format "2006-01-02 15:04:05" }}
+{{ if eq .Status "resolved" }}
+**Resolved:** {{ .EndsAt.Format "2006-01-02 15:04:05" }}
+{{ end }}
+{{ end }}
+{{ end }}
