@@ -24,6 +24,7 @@ DIRECTORIES=("/etc/nginx" \
 "/home/safalkon" \
 "/var/www" \
 "/var/lib/prometheus" \
+"/etc/default/prometheus*" \
 )
 EXISTING_DIRS=()
 
