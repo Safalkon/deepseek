@@ -18,7 +18,13 @@ log "=== Starting backup ==="
 
 # Проверка существования исходных директорий
 log "Checking source directories..."
-DIRECTORIES=("/etc/nginx" "/etc/prometheus" "/etc/grafana" "/home/safalkon" "/var/www")
+DIRECTORIES=("/etc/nginx" \
+"/etc/prometheus" \
+"/etc/grafana" \
+"/home/safalkon" \
+"/var/www" \
+"/var/lib/prometheus" \
+)
 EXISTING_DIRS=()
 
 for dir in "${DIRECTORIES[@]}"; do
